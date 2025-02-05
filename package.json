@@ -1,0 +1,24 @@
+{
+  "name": "git-server-fe",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.2.5"
+  },
+  "packageManager": "pnpm@10.2.0",
+  "volta": {
+    "node": "22.13.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
+}
