@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  name: string;
+  type: 'file' | 'directory';
+  children?: Props[];
+}
+
+const { name, type, children } = Astro.props;
+---
+
+<li>
+  {
+    type === 'file' ? (
+      <a>
+        <Icon name="lucide:file" class="size-4" />
+        {name}
+      </a>
+    ) : (
+      <details open>
+        <summary>
+          <Icon name="lucide:folder" class="size-4" />
+          {name}
+        </summary>
+        {children && (
+          <ul>
+            {children.map((child) => (
+              <Astro.self {...child} />
+            ))}
+          </ul>
+        )}
+      </details>
+    )
+  }
+</li>

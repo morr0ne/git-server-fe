@@ -1,5 +1,9 @@
 ---
-import Base from '@layouts/Base.astro';
+import Base from '@/layouts/Base.astro';
+import FileTree from '@/components/FileTree.astro';
+import { FILES } from '@/mock/files';
 ---
 
-<Base>Git server</Base>
+<Base>
+  <FileTree files={FILES} />
+</Base>
