@@ -3,19 +3,19 @@ import type { Files } from '@/types/files';
 export const FILES: Files = {
   name: 'root',
   type: 'directory',
-  children: [
+  childs: [
     {
       name: 'src',
       type: 'directory',
-      children: [
+      childs: [
         {
           name: 'components',
           type: 'directory',
-          children: [
+          childs: [
             {
               name: 'common',
               type: 'directory',
-              children: [
+              childs: [
                 { name: 'Button.tsx', type: 'file' },
                 { name: 'Input.tsx', type: 'file' },
                 { name: 'Modal.tsx', type: 'file' },
@@ -27,7 +27,7 @@ export const FILES: Files = {
             {
               name: 'layout',
               type: 'directory',
-              children: [
+              childs: [
                 { name: 'Header.tsx', type: 'file' },
                 { name: 'Footer.tsx', type: 'file' },
                 { name: 'Sidebar.tsx', type: 'file' },
@@ -38,11 +38,11 @@ export const FILES: Files = {
             {
               name: 'features',
               type: 'directory',
-              children: [
+              childs: [
                 {
                   name: 'auth',
                   type: 'directory',
-                  children: [
+                  childs: [
                     { name: 'LoginForm.tsx', type: 'file' },
                     { name: 'RegisterForm.tsx', type: 'file' },
                     { name: 'AuthContext.tsx', type: 'file' },
@@ -53,7 +53,7 @@ export const FILES: Files = {
                 {
                   name: 'dashboard',
                   type: 'directory',
-                  children: [
+                  childs: [
                     { name: 'DashboardView.tsx', type: 'file' },
                     { name: 'AnalyticsChart.tsx', type: 'file' },
                     { name: 'StatisticsCard.tsx', type: 'file' },
@@ -63,7 +63,7 @@ export const FILES: Files = {
                 {
                   name: 'settings',
                   type: 'directory',
-                  children: [
+                  childs: [
                     { name: 'SettingsPanel.tsx', type: 'file' },
                     { name: 'ProfileSettings.tsx', type: 'file' },
                     { name: 'SecuritySettings.tsx', type: 'file' },
@@ -76,7 +76,7 @@ export const FILES: Files = {
         {
           name: 'hooks',
           type: 'directory',
-          children: [
+          childs: [
             { name: 'useLocalStorage.ts', type: 'file' },
             { name: 'useDebounce.ts', type: 'file' },
             { name: 'useMediaQuery.ts', type: 'file' },
@@ -86,7 +86,7 @@ export const FILES: Files = {
         {
           name: 'utils',
           type: 'directory',
-          children: [
+          childs: [
             { name: 'api.ts', type: 'file' },
             { name: 'formatting.ts', type: 'file' },
             { name: 'validation.ts', type: 'file' },
@@ -96,7 +96,7 @@ export const FILES: Files = {
         {
           name: 'styles',
           type: 'directory',
-          children: [
+          childs: [
             { name: 'global.css', type: 'file' },
             { name: 'variables.css', type: 'file' },
             { name: 'animations.css', type: 'file' },
@@ -110,18 +110,18 @@ export const FILES: Files = {
     {
       name: 'public',
       type: 'directory',
-      children: [
+      childs: [
         { name: 'index.html', type: 'file' },
         { name: 'favicon.ico', type: 'file' },
         { name: 'robots.txt', type: 'file' },
         {
           name: 'assets',
           type: 'directory',
-          children: [
+          childs: [
             {
               name: 'images',
               type: 'directory',
-              children: [
+              childs: [
                 { name: 'logo.svg', type: 'file' },
                 { name: 'hero.png', type: 'file' },
                 { name: 'placeholder.jpg', type: 'file' },
@@ -130,7 +130,7 @@ export const FILES: Files = {
             {
               name: 'fonts',
               type: 'directory',
-              children: [
+              childs: [
                 { name: 'Inter-Regular.woff2', type: 'file' },
                 { name: 'Inter-Medium.woff2', type: 'file' },
                 { name: 'Inter-Bold.woff2', type: 'file' },
@@ -143,12 +143,12 @@ export const FILES: Files = {
     {
       name: 'tests',
       type: 'directory',
-      children: [
+      childs: [
         { name: 'setup.ts', type: 'file' },
         {
           name: 'unit',
           type: 'directory',
-          children: [
+          childs: [
             { name: 'Button.test.tsx', type: 'file' },
             { name: 'Modal.test.tsx', type: 'file' },
             { name: 'useAuth.test.ts', type: 'file' },
@@ -157,7 +157,7 @@ export const FILES: Files = {
         {
           name: 'integration',
           type: 'directory',
-          children: [
+          childs: [
             { name: 'auth.test.tsx', type: 'file' },
             { name: 'dashboard.test.tsx', type: 'file' },
           ],
