@@ -15,11 +15,11 @@
     "@astrojs/node": "^9.0.2",
     "@astrojs/solid-js": "^5.0.4",
     "@iconify-json/lucide": "^1.2.25",
-    "@tailwindcss/vite": "^4.0.3",
+    "@tailwindcss/vite": "^4.0.4",
     "astro": "^5.2.5",
-    "daisyui": "5.0.0-beta.6",
+    "daisyui": "5.0.0-beta.7",
     "solid-js": "^1.9.4",
-    "tailwindcss": "^4.0.3",
+    "tailwindcss": "^4.0.4",
     "typescript": "^5.7.3"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "unplugin-icons": "^22.0.0"
   },
-  "packageManager": "pnpm@10.2.0",
+  "packageManager": "pnpm@10.2.1",
   "volta": {
     "node": "22.13.1"
   },
