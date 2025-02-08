@@ -1,34 +1,56 @@
 import type { Files } from '@/types/files';
-import { For, Match, Switch, type Component } from 'solid-js';
+import { For, Match, Show, Switch, type Component } from 'solid-js';
 import IconFile from '~icons/lucide/file';
 import IconFolder from '~icons/lucide/folder';
 
-const FileNode: Component<Files> = (props) => {
-  return (
-    <li>
-      <Switch>
-        <Match when={props.type == 'file'}>
-          <a>
-            <IconFile class="size-4" />
-            {props.name}
-          </a>
-        </Match>
-        <Match when={props.type == 'directory'}>
-          <details>
-            <summary>
-              <IconFolder class="size-4" />
-              {props.name}
-            </summary>
-            <ul>
-              <For each={props.childs}>
-                {(child) => <FileNode {...child} />}
-              </For>
-            </ul>
-          </details>
-        </Match>
-      </Switch>
-    </li>
-  );
+export type Props = Files & {
+  isRoot?: boolean;
 };
+
+const sortFiles = (a: Files, b: Files) => {
+  if (a.type !== b.type) {
+    return a.type === 'directory' ? -1 : 1;
+  }
+
+  return a.name.localeCompare(b.name);
+};
+
+const DirectoryContent: Component<Props> = (props) => (
+  <ul>
+    <For each={props.childs?.sort(sortFiles)}>
+      {(child) => <FileNode {...child} />}
+    </For>
+  </ul>
+);
+
+const FileNode: Component<Props> = (props) => (
+  <Show
+    when={props.isRoot && props.type === 'directory'}
+    fallback={
+      <li>
+        <Switch>
+          <Match when={props.type === 'file'}>
+            <a>
+              <IconFile class="size-4" />
+              {props.name}
+            </a>
+          </Match>
+
+          <Match when={props.type === 'directory'}>
+            <details>
+              <summary>
+                <IconFolder class="size-4" />
+                {props.name}
+              </summary>
+              <DirectoryContent {...props} />
+            </details>
+          </Match>
+        </Switch>
+      </li>
+    }
+  >
+    <DirectoryContent {...props} />
+  </Show>
+);
 
 export default FileNode;
