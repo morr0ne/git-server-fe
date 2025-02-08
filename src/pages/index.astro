@@ -1,9 +1,14 @@
 ---
 import Base from '@/layouts/Base.astro';
 import FileTree from '@/components/FileTree';
-import { FILES } from '@/mock/files';
+import ky from 'ky';
+import type { Files } from '@/types/files';
+
+const files: Files = await ky(
+  'http://localhost:3344/repo/mati/verdi.git/files',
+).json();
 ---
 
 <Base>
-  <FileTree files={FILES} />
+  <FileTree files={files} />
 </Base>
