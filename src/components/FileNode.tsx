@@ -1,18 +1,11 @@
 import type { Files } from '@/types/files';
+import { sortFiles } from '@/utils';
 import { For, Match, Show, Switch, type Component } from 'solid-js';
 import IconFile from '~icons/lucide/file';
 import IconFolder from '~icons/lucide/folder';
 
 export type Props = Files & {
   isRoot?: boolean;
-};
-
-const sortFiles = (a: Files, b: Files) => {
-  if (a.type !== b.type) {
-    return a.type === 'directory' ? -1 : 1;
-  }
-
-  return a.name.localeCompare(b.name);
 };
 
 const DirectoryContent: Component<Props> = (props) => (
