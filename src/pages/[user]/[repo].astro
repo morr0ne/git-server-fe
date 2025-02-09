@@ -1,7 +1,45 @@
 ---
 import Base from '@/layouts/Base.astro';
+import ky from 'ky';
+import type { Files } from '@/types/files';
+import Repository from '@/components/Repository';
+
+import rehypeFormat from 'rehype-format';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
+import remarkDirective from 'remark-directive';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
 
 const { user, repo } = Astro.params;
+
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkDirective)
+  .use(remarkFrontmatter)
+  .use(remarkGfm)
+  .use(remarkMath)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeRaw)
+  .use(rehypeFormat)
+  .use(rehypeSanitize)
+  .use(rehypeStringify);
+
+const src = await ky(
+  `http://localhost:3344/repo/${user}/${repo}.git/blob/main/README.md`
+).text();
+const readme = await processor.process(src);
+
+const files: Files = await ky(
+  `http://localhost:3344/repo/${user}/${repo}.git/files`
+).json();
 ---
 
-<Base>Fetching {user}/{repo} </Base>
+<Base>
+  <Repository files={files} readme={String(readme)} />
+</Base>
