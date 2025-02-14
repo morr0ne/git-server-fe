@@ -40,6 +40,6 @@ const files: Files = await ky(
 ).json();
 ---
 
-<Base>
+<Base title=`${user}/${repo}`>
   <Repository files={files} readme={String(readme)} />
 </Base>
