@@ -33,6 +33,7 @@
     "@astrojs/check": "^0.9.4",
     "@iconify-json/lucide": "^1.2.57",
     "@tailwindcss/vite": "^4.1.11",
+    "@types/bun": "^1.2.19",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
@@ -40,14 +41,9 @@
     "typescript": "^5.8.3",
     "unplugin-icons": "^22.1.0"
   },
-  "packageManager": "pnpm@10.13.1",
-  "volta": {
-    "node": "22.13.1"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp"
-    ]
-  }
+  "trustedDependencies": [
+    "@tailwindcss/oxide",
+    "esbuild",
+    "sharp"
+  ]
 }
